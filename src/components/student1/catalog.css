@@ -1,0 +1,13 @@
+.catalog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.catalog-card { border: 1px solid #dce2ea; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; }
+.catalog-card h3 { margin: 8px 0; }
+.catalog-card > p { margin: 6px 0; }
+.catalog-image { position: relative; background: #edf2f9; border-radius: 8px; height: 120px; display: grid; place-items: center; }
+.catalog-image > span:first-child { font-size: 56px; }
+.catalog-sale { position: absolute; left: 8px; top: 8px; padding: 4px 7px; background: #dcefe2; color: #236039; border-radius: 4px; font-size: 12px; }
+.catalog-price { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 14px 0; margin-top: auto; padding-top: 12px; }
+.catalog-price del { color: #687385; font-size: 14px; }
+.catalog-actions { display: flex; gap: 8px; }
+.catalog-actions button:first-child { flex: 1; }
+@media (max-width: 900px) { .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 580px) { .catalog-grid { grid-template-columns: 1fr; } }
