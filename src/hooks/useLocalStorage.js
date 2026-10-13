@@ -1,3 +1,5 @@
+```javascript
+// სტუდენტი 2: საერთო შენახვის Hook; გამოიყენება საერთო კონტექსტშიც.
 import { useEffect, useState } from 'react';
 import { readStoredValue } from '../utils/storage';
 
@@ -16,3 +18,4 @@ export default function useLocalStorage(key, initialValue, validate) {
 
   return [value, setValue, storageError];
 }
+```

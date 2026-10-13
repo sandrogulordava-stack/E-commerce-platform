@@ -1,3 +1,4 @@
+```jsx
 import { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -7,6 +8,7 @@ import { isCart, isFavorites } from '../utils/storage';
 export const StoreContext = createContext(null);
 
 export function StoreProvider({ children }) {
+  // კალათის useState და შენახვის useEffect მოთავსებულია სტუდენტი 2-ის Hook-ში.
   const [cart, setCart, cartError] = useLocalStorage('tech-store-cart-v1', [], isCart);
   const [favoriteIds, setFavoriteIds, favoritesError] = useLocalStorage('tech-store-favorites-v1', [], isFavorites);
   const [currency, setCurrency] = useState('GEL');
@@ -55,9 +57,13 @@ export function StoreProvider({ children }) {
   }, [setFavoriteIds, notify]);
 
   const clearCart = useCallback(() => setCart([]), [setCart]);
+
   const formatPrice = useCallback((price) => {
     const amount = currency === 'USD' ? price / 2.7 : price;
-    const number = new Intl.NumberFormat('ka-GE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(amount);
+    const number = new Intl.NumberFormat('ka-GE', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(amount);
     return `${number} ${currency === 'GEL' ? '₾' : '$'}`;
   }, [currency]);
 
@@ -68,9 +74,14 @@ export function StoreProvider({ children }) {
 
   return <StoreContext.Provider value={value}>
     {children}
-    {(cartError || favoritesError) && <p className="storage-warning" role="alert">{cartError || favoritesError}</p>}
+    {(cartError || favoritesError) && (
+      <p className="storage-warning" role="alert">
+        {cartError || favoritesError}
+      </p>
+    )}
     <div className="toast" role="status" aria-live="polite">{notice}</div>
   </StoreContext.Provider>;
 }
 
 StoreProvider.propTypes = { children: PropTypes.node.isRequired };
+```

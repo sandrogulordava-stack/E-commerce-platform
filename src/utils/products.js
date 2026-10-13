@@ -1,3 +1,4 @@
+```javascript
 export const products = [
   { id: 1, name: 'უსადენო ყურსასმენი', category: 'აუდიო', price: 149, oldPrice: 189, icon: '🎧', description: 'კომფორტული ყურსასმენი ყოველდღიური მუსიკისთვის.', stock: 12 },
   { id: 2, name: 'პორტატული დინამიკი', category: 'აუდიო', price: 89, oldPrice: null, icon: '🔊', description: 'კომპაქტური დინამიკი სახლში და მოგზაურობისას.', stock: 8 },
@@ -10,8 +11,11 @@ export const products = [
 ];
 
 export const categories = [...new Set(products.map((product) => product.category))];
-export const getProduct = (id) => products.find((product) => product.id === Number(id));
 
+export const getProduct = (id) =>
+  products.find((product) => product.id === Number(id));
+
+// რეალური სერვერის ნაცვლად ლოკალური მონაცემების დაგვიანებული ჩატვირთვა.
 export function loadProducts(signal) {
   return new Promise((resolve, reject) => {
     const abort = () => {
@@ -19,11 +23,14 @@ export function loadProducts(signal) {
       signal?.removeEventListener('abort', abort);
       reject(new DOMException('ჩატვირთვა შეწყდა', 'AbortError'));
     };
+
     const timer = setTimeout(() => {
       signal?.removeEventListener('abort', abort);
       resolve(products);
     }, 400);
+
     if (signal?.aborted) abort();
     else signal?.addEventListener('abort', abort, { once: true });
   });
 }
+```
