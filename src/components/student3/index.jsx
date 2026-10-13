@@ -1,4 +1,3 @@
-// ავტორი: სტუდენტი 3 — მიმოხილვები და რეიტინგი.
 import { memo, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { StoreContext } from '../../context/StoreContext';

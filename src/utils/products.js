@@ -12,7 +12,6 @@ export const products = [
 export const categories = [...new Set(products.map((product) => product.category))];
 export const getProduct = (id) => products.find((product) => product.id === Number(id));
 
-// რეალური სერვერის ნაცვლად ლოკალური მონაცემების დაგვიანებული ჩატვირთვა.
 export function loadProducts(signal) {
   return new Promise((resolve, reject) => {
     const abort = () => {

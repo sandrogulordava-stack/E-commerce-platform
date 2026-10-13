@@ -1,4 +1,3 @@
-// ავტორი: სტუდენტი 3.
 import { useCallback, useState } from 'react';
 
 export function validateReview(values) {

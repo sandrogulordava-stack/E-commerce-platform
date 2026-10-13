@@ -7,7 +7,6 @@ import { isCart, isFavorites } from '../utils/storage';
 export const StoreContext = createContext(null);
 
 export function StoreProvider({ children }) {
-  // კალათის useState და შენახვის useEffect მოთავსებულია სტუდენტი 2-ის Hook-ში.
   const [cart, setCart, cartError] = useLocalStorage('tech-store-cart-v1', [], isCart);
   const [favoriteIds, setFavoriteIds, favoritesError] = useLocalStorage('tech-store-favorites-v1', [], isFavorites);
   const [currency, setCurrency] = useState('GEL');
