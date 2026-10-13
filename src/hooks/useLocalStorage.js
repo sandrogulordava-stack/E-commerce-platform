@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { readStoredValue } from '../utils/storage';
 
+// სტუდენტი 2: საერთო შენახვის Hook; გამოიყენება საერთო კონტექსტშიც.
 export default function useLocalStorage(key, initialValue, validate) {
   const [value, setValue] = useState(() =>
     readStoredValue(key, initialValue, validate)
