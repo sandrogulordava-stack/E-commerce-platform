@@ -1,0 +1,7 @@
+.favorites-summary { background: #edf2f9; padding: 14px; border-radius: 8px; display: flex; gap: 14px; justify-content: space-between; flex-wrap: wrap; margin-bottom: 18px; }
+.favorites-card { display: flex; gap: 18px; align-items: center; padding: 18px; margin: 14px 0; border: 1px solid #dce2ea; border-radius: 10px; }
+.favorites-card h3 { margin: 6px 0; }
+.favorites-card p { margin: 6px 0; }
+.favorites-icon { font-size: 42px; padding: 20px; background: #edf2f9; border-radius: 8px; }
+.favorites-actions { display: grid; gap: 10px; }
+@media (max-width: 650px) { .favorites-card { flex-wrap: wrap; } .favorites-actions { width: 100%; } .favorites-icon { padding: 12px; } }
